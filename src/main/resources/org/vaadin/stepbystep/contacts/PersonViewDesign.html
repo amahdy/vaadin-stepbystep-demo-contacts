@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8" name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+ </head> 
+ <body> 
+  <vaadin-horizontal-layout spacing size-full margin> 
+   <vaadin-image width="90px" height="90px" _id="picture"></vaadin-image> 
+   <vaadin-vertical-layout spacing size-full :expand> 
+    <vaadin-form-layout margin-top="false" margin-bottom="false"> 
+     <vaadin-text-field caption="First Name" _id="firstname"></vaadin-text-field> 
+     <vaadin-text-field caption="Last Name" _id="lastname"></vaadin-text-field> 
+     <vaadin-text-field caption="Email" _id="email"></vaadin-text-field> 
+     <vaadin-date-field _id="dateOfBirth"></vaadin-date-field> 
+    </vaadin-form-layout> 
+    <vaadin-text-area size-full _id="notes" :expand></vaadin-text-area> 
+    <vaadin-horizontal-layout spacing width-full> 
+     <vaadin-button icon="fonticon://FontAwesome/f0c7" style-name="primary" plain-text _id="save">
+       Save 
+     </vaadin-button> 
+     <vaadin-button icon="fonticon://FontAwesome/f044" style-name="primary" plain-text _id="edit">
+       Edit 
+     </vaadin-button> 
+     <vaadin-button style-name="friendly" plain-text _id="cancel" :expand>
+       Cancel 
+     </vaadin-button> 
+     <vaadin-button style-name="danger" plain-text _id="delete" :bottom :right>
+       Delete 
+     </vaadin-button> 
+    </vaadin-horizontal-layout> 
+   </vaadin-vertical-layout> 
+  </vaadin-horizontal-layout>  
+ </body>
+</html>
