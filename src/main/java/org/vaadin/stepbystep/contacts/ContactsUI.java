@@ -50,10 +50,8 @@ public class ContactsUI extends UI {
 	
     public void savePerson(Person item) {
     		service.save(item);
-    		
-        refreshGrid();
-        
-        grid.select(item);
+
+        grid.refreshRows(item);
     }
     
     @Override
