@@ -25,6 +25,10 @@ public class PersonView extends PersonDesign {
 				e.printStackTrace();
 			}
 		});
+		
+		cancel.addClickListener(evt -> {
+			binder.discard();
+		});
 	}
 	
 	public void setPerson(Person selectedRow) {
