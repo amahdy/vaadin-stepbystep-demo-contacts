@@ -8,15 +8,19 @@ import com.vaadin.server.ExternalResource;
 
 public class PersonView extends PersonDesign {
 
+	public interface PersonChangeEvent {
+		void savePerson(Person person);
+	}
+
 	BeanFieldGroup<Person> binder = new BeanFieldGroup<>(Person.class);
 	
-	public PersonView() {
+	public PersonView(PersonChangeEvent event) {
 		binder.bindMemberFields(this);
 		
 		save.addClickListener(evt -> {
 			try {
 				binder.commit();
-				((ContactsUI) getUI()).savePerson(binder.getItemDataSource().getBean());
+				event.savePerson(binder.getItemDataSource().getBean());
 			} catch (CommitException e) {
 				e.printStackTrace();
 			}

@@ -27,7 +27,7 @@ public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
 	Grid grid = new Grid();
-	PersonView editor = new PersonView();
+	PersonView editor = new PersonView(item -> savePerson(item));
 
     @Inject
     PersonService service;
@@ -55,7 +55,7 @@ public class ContactsUI extends UI {
 		grid.select(grid.getContainerDataSource().getIdByIndex(0));
 	}
 	
-    public void savePerson(Person item) {
+    private void savePerson(Person item) {
     		service.save(item);
 
         grid.refreshRows(item);
