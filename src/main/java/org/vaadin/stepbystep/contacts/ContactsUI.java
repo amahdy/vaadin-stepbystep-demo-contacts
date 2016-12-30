@@ -7,6 +7,8 @@ import com.vaadin.annotations.VaadinServletConfiguration;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
+import com.vaadin.ui.Grid;
+import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.Label;
 import com.vaadin.ui.TextField;
 import com.vaadin.ui.UI;
@@ -22,24 +24,18 @@ import com.vaadin.ui.VerticalLayout;
 @Theme("mytheme")
 public class ContactsUI extends UI {
 
+	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
+	Grid grid = new Grid();
+	
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
 
-        Button button = new Button("Click Me");
-        button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
+    		splitter.setSizeFull();
+    		grid.setSizeFull();
+    		
+    		splitter.setFirstComponent(grid);
         
-        layout.addComponents(name, button);
-        layout.setMargin(true);
-        layout.setSpacing(true);
-        
-        setContent(layout);
+        setContent(splitter);
     }
 
     @WebServlet(urlPatterns = "/*", name = "ContactsUIServlet", asyncSupported = true)
