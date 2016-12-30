@@ -36,6 +36,10 @@ public class ContactsUI extends UI {
     void load() {
         service.loadData();
 
+        grid.addSelectionListener(evt -> {
+        		editor.setPerson((Person) grid.getSelectedRow());
+        });
+        
         BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
         grid.setContainerDataSource(container);
     }
