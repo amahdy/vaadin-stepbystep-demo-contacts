@@ -4,6 +4,7 @@ import javax.servlet.annotation.WebServlet;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.annotations.VaadinServletConfiguration;
+import com.vaadin.cdi.CDIUI;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinServlet;
 import com.vaadin.ui.Button;
@@ -22,6 +23,7 @@ import com.vaadin.ui.VerticalLayout;
  * overridden to add component to the user interface and initialize non-component functionality.
  */
 @Theme("mytheme")
+@CDIUI("")
 public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
@@ -36,10 +38,5 @@ public class ContactsUI extends UI {
     		splitter.setFirstComponent(grid);
         
         setContent(splitter);
-    }
-
-    @WebServlet(urlPatterns = "/*", name = "ContactsUIServlet", asyncSupported = true)
-    @VaadinServletConfiguration(ui = ContactsUI.class, productionMode = false)
-    public static class ContactsUIServlet extends VaadinServlet {
     }
 }
