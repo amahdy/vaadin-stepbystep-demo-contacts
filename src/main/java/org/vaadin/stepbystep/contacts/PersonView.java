@@ -4,6 +4,7 @@ import org.vaadin.stepbystep.person.backend.Person;
 
 import com.vaadin.data.fieldgroup.BeanFieldGroup;
 import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
+import com.vaadin.server.ExternalResource;
 
 public class PersonView extends PersonDesign {
 
@@ -24,6 +25,8 @@ public class PersonView extends PersonDesign {
 	
 	public void setPerson(Person selectedRow) {
 		binder.setItemDataSource(selectedRow);
+		
+		picture.setSource(new ExternalResource(selectedRow.getPicture()));
 	}
 
 }
