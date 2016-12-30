@@ -47,6 +47,12 @@ public class ContactsUI extends UI {
 
         BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
         grid.setContainerDataSource(container);
+        grid.removeColumn("id");
+        grid.removeColumn("notes");
+        grid.removeColumn("dateOfBirth");
+        grid.removeColumn("picture");
+        grid.removeColumn("remind");
+        grid.setColumnOrder("firstName", "lastName", "email");
 
         selectDefault();
     }
