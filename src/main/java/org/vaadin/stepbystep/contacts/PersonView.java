@@ -10,6 +10,7 @@ public class PersonView extends PersonDesign {
 
 	public interface PersonChangeEvent {
 		void savePerson(Person person);
+		void deletePerson(Person person);
 	}
 
 	BeanFieldGroup<Person> binder = new BeanFieldGroup<>(Person.class);
@@ -28,6 +29,10 @@ public class PersonView extends PersonDesign {
 		
 		cancel.addClickListener(evt -> {
 			binder.discard();
+		});
+
+		delete.addClickListener(evt -> {
+			event.deletePerson(binder.getItemDataSource().getBean());
 		});
 	}
 	
