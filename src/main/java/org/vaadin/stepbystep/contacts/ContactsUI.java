@@ -37,15 +37,22 @@ public class ContactsUI extends UI {
         service.loadData();
 
         grid.addSelectionListener(evt -> {
-        		editor.setPerson((Person) grid.getSelectedRow());
+        		Person selectedItem = (Person) grid.getSelectedRow();
+        		if(selectedItem == null) {
+        			selectDefault();
+        		}else {
+        			editor.setPerson(selectedItem);
+        		}
         });
-        
-        refreshGrid();
+
+        BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
+        grid.setContainerDataSource(container);
+
+        selectDefault();
     }
 
-	public void refreshGrid() {
-		BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
-        grid.setContainerDataSource(container);
+	public void selectDefault() {
+		grid.select(grid.getContainerDataSource().getIdByIndex(0));
 	}
 	
     public void savePerson(Person item) {
