@@ -27,7 +27,8 @@ public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
 	Grid grid = new Grid();
-	
+	PersonView editor = new PersonView();
+
     @Inject
     PersonService service;
 
@@ -44,8 +45,10 @@ public class ContactsUI extends UI {
 
     		splitter.setSizeFull();
     		grid.setSizeFull();
+    		editor.setSizeFull();
     		
     		splitter.setFirstComponent(grid);
+    		splitter.setSecondComponent(editor);
         
         setContent(splitter);
     }
