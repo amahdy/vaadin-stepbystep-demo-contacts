@@ -15,6 +15,7 @@ public class PersonView extends PersonDesign {
 		save.addClickListener(evt -> {
 			try {
 				binder.commit();
+				((ContactsUI) getUI()).savePerson(binder.getItemDataSource().getBean());
 			} catch (CommitException e) {
 				e.printStackTrace();
 			}

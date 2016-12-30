@@ -40,10 +40,22 @@ public class ContactsUI extends UI {
         		editor.setPerson((Person) grid.getSelectedRow());
         });
         
-        BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
-        grid.setContainerDataSource(container);
+        refreshGrid();
     }
+
+	public void refreshGrid() {
+		BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
+        grid.setContainerDataSource(container);
+	}
 	
+    public void savePerson(Person item) {
+    		service.save(item);
+    		
+        refreshGrid();
+        
+        grid.select(item);
+    }
+    
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
