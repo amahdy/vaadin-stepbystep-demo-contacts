@@ -29,7 +29,7 @@ public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
 	Grid grid = new Grid();
-	PersonView editor = new PersonView(p -> savePerson(p), p -> deletePerson(p));
+	PersonView editor = new PersonView(this::savePerson, this::deletePerson);
 
 	@Inject
 	PersonService service;
@@ -63,14 +63,15 @@ public class ContactsUI extends UI {
 
 		BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
 		grid.setContainerDataSource(container);
+
+		grid.setColumns("firstName","lastName","email");		
 		// Can also be:
-		// grid.setColumns("firstName","lastName","email");
-		grid.removeColumn("id");
-		grid.removeColumn("notes");
-		grid.removeColumn("dateOfBirth");
-		grid.removeColumn("picture");
-		grid.removeColumn("remind");
-		grid.setColumnOrder("firstName", "lastName", "email");
+		// grid.removeColumn("id");
+		// grid.removeColumn("notes");
+		// grid.removeColumn("dateOfBirth");
+		// grid.removeColumn("picture");
+		// grid.removeColumn("remind");
+		// grid.setColumnOrder("firstName", "lastName", "email");
 
 		selectDefault();
 	}
