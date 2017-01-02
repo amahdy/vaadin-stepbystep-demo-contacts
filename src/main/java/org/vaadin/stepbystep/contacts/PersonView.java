@@ -10,14 +10,15 @@ public class PersonView extends PersonDesign {
 
 	public interface PersonChangeEvent {
 		void savePerson(Person person);
+
 		void deletePerson(Person person);
 	}
 
 	BeanFieldGroup<Person> binder = new BeanFieldGroup<>(Person.class);
-	
+
 	public PersonView(PersonChangeEvent event) {
 		binder.bindMemberFields(this);
-		
+
 		save.addClickListener(evt -> {
 			try {
 				binder.commit();
@@ -26,7 +27,7 @@ public class PersonView extends PersonDesign {
 				e.printStackTrace();
 			}
 		});
-		
+
 		cancel.addClickListener(evt -> {
 			binder.discard();
 		});
@@ -35,10 +36,10 @@ public class PersonView extends PersonDesign {
 			event.deletePerson(binder.getItemDataSource().getBean());
 		});
 	}
-	
+
 	public void setPerson(Person selectedRow) {
 		binder.setItemDataSource(selectedRow);
-		
+
 		picture.setSource(new ExternalResource(selectedRow.getPicture()));
 	}
 
