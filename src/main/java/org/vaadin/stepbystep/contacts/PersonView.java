@@ -8,21 +8,23 @@ import com.vaadin.server.ExternalResource;
 
 public class PersonView extends PersonDesign {
 
-	public interface PersonChangeEvent {
+	public interface PersonSaveListener {
 		void savePerson(Person person);
+	}
 
+	public interface PersonDeleteListener {
 		void deletePerson(Person person);
 	}
 
 	BeanFieldGroup<Person> binder = new BeanFieldGroup<>(Person.class);
 
-	public PersonView(PersonChangeEvent event) {
+	public PersonView(PersonSaveListener saveEvt, PersonDeleteListener delEvt) {
 		binder.bindMemberFields(this);
 
 		save.addClickListener(evt -> {
 			try {
 				binder.commit();
-				event.savePerson(binder.getItemDataSource().getBean());
+				saveEvt.savePerson(binder.getItemDataSource().getBean());
 			} catch (CommitException e) {
 				e.printStackTrace();
 			}
@@ -33,7 +35,7 @@ public class PersonView extends PersonDesign {
 		});
 
 		delete.addClickListener(evt -> {
-			event.deletePerson(binder.getItemDataSource().getBean());
+			delEvt.deletePerson(binder.getItemDataSource().getBean());
 		});
 	}
 

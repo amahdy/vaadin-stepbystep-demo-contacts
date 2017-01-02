@@ -3,7 +3,6 @@ package org.vaadin.stepbystep.contacts;
 import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 
-import org.vaadin.stepbystep.contacts.PersonView.PersonChangeEvent;
 import org.vaadin.stepbystep.person.backend.Person;
 import org.vaadin.stepbystep.person.backend.PersonService;
 
@@ -30,27 +29,24 @@ public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
 	Grid grid = new Grid();
-	PersonView editor = new PersonView(new PersonChangeEvent() {
-
-		@Override
-		public void savePerson(Person person) {
-			service.save(person);
-
-			grid.refreshRows(person);
-		}
-
-		@Override
-		public void deletePerson(Person person) {
-			service.delete(person);
-
-			grid.getContainerDataSource().removeItem(person);
-
-			selectDefault();
-		}
-	});
+	PersonView editor = new PersonView(p -> savePerson(p), p -> deletePerson(p));
 
 	@Inject
 	PersonService service;
+
+	private void savePerson(Person person) {
+		service.save(person);
+
+		grid.refreshRows(person);
+	}
+
+	private void deletePerson(Person person) {
+		service.delete(person);
+
+		grid.getContainerDataSource().removeItem(person);
+
+		selectDefault();
+	}
 
 	@PostConstruct
 	void load() {
