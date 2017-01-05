@@ -3,7 +3,9 @@ Contacts - Vaadin Project with External Backend
 
 This is a demo Vaadin 7 project with CDI. It relies on an [external backend](https://github.com/amahdy/person-service) to serve the data.
 
-##The coding process of this demo is available on this 12 minutes
+*[Workflow](#workflow) and [FAQ](#faq) are listed below*
+
+##The coding process of the demo is available on this 12 minutes video
 
 [![Vaadin Demo Coding in a Youtube Video](http://img.youtube.com/vi/k47CkTx9hUw/0.jpg)](http://www.youtube.com/watch?v=k47CkTx9hUw)
 
@@ -57,8 +59,11 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 
 [Extra 10 | Host widgetset in CDN](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/4bb4f359056252184a3051c6c359a35f17dfe272)
 
-Workflow
-========
+#FAQ
+
+TBD
+
+#Workflow
 
 Clone this project from GitHub and check out vaadin7 branch:
 
