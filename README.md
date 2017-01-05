@@ -3,7 +3,11 @@ Contacts - Vaadin Project with External Backend
 
 This is a demo Vaadin 7 project with CDI. It relies on an [external backend](https://github.com/amahdy/person-service) to serve the data.
 
-The coding process of this demo is available on this 12 minutes [Youtube video](https://www.youtube.com/watch?v=k47CkTx9hUw). And the steps are clearly divided into separate commits:
+##The coding process of this demo is available on this 12 minutes
+
+[![Vaadin Demo Coding in a Youtube Video](http://img.youtube.com/vi/k47CkTx9hUw/0.jpg)](http://www.youtube.com/watch?v=k47CkTx9hUw)
+
+##Steps are clearly divided into separate commits
 
 [Step 0 | 00:55 | Create a new Vaadin project using Eclipse plugin](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/3ae97bf99f8c18b22a76db2f1da293c18e19ac9c)
 
@@ -31,7 +35,7 @@ The coding process of this demo is available on this 12 minutes [Youtube video](
 
 [Step 12 | End of Video | Update backend as well](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/39b0250b24abb467636e7c93435d782b954b7bd6)
 
-And some other extra enhancements to the code that are not mentioned in the video:
+##Other enhancements to the code that are not mentioned in the video:
 
 [Extra 1 | Use the new and faster API refreshRows for Grid](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/282a177c2bcd79c02487b0879ec1af1406249b9e)
 
