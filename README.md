@@ -68,7 +68,7 @@ You can also get it from [Vaadin Directory](https://vaadin.com/directory#!addon/
 1. **Where can I find the backend project?**
 Please refer to previous answer.
 
-1. **I'm using Wildfly 10 as shown in the video, but I get 404 in the browser?** Sometimes Wildfly deploys with version suffix, and the context root must contain this suffix. You can change it from configurations, and in this simple demo you can just append -1.0-SNAPSHOT to the context root. So the demo should be available under this URL: http://localhost:8080/contacts-1.0-SNAPSHOT/
+1. **I'm using Wildfly 10 as shown in the video, but I get 404 in the browser?** Sometimes Wildfly deploys with version suffix, and the context root must contain this suffix. You can change it from configurations, and in this simple demo you can just append `-1.0-SNAPSHOT` to the context root. So the demo should be available under this URL: `http://localhost:8080/contacts-1.0-SNAPSHOT/`
 
 1. **I'm using Tomcat/Jetty/..etc and it does not work?** In this particular example I had to use Wildfly, because of CDI and JEE specs, the application server must fully support those specs. Otherwise in other Vaadin application, any servelet container such as tomcat and jetty will work just fine.
 
