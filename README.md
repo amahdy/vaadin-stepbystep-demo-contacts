@@ -37,7 +37,7 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 
 [Step 12 | End of Video | Update backend as well](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/39b0250b24abb467636e7c93435d782b954b7bd6)
 
-##Other enhancements to the code that are not mentioned in the video:
+##Other enhancements to the code that are not mentioned in the video
 
 [Extra 1 | Use the new and faster API refreshRows for Grid](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/282a177c2bcd79c02487b0879ec1af1406249b9e)
 
@@ -59,11 +59,28 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 
 [Extra 10 | Host widgetset in CDN](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/4bb4f359056252184a3051c6c359a35f17dfe272)
 
-#FAQ
+##FAQ
 
-TBD
+1. **Where can I find the person-service?**
+The backend service is required to be installed locally to be able to run this project. It's located in [this repository](https://github.com/amahdy/person-service/) along with detailed steps on how to install it.
 
-#Workflow
+1. **Where can I find the backend project?**
+Please refer to previous answer.
+
+1. **I'm using Wildfly 10 as show in the video, but I get 404 in the browser?** Sometimes Wildfly deploys with version suffix, and the context root must contain this suffix. You can change it from configurations, and in this simple demo you can just append -1.0-SNAPSHOT to the context root. So the demo should be available under this URL: http://localhost:8080/contacts-1.0-SNAPSHOT/
+
+1. **I'm using Tomcat/Jetty/..etc and it does not work?** In this particular example I had to use Wildfly, because of CDI and JEE specs, the application server must fully support those specs. Otherwise in other Vaadin application, any servelet container such as tomcat and jetty will work just fine.
+
+1. **I'm following the demo step by step, but when I refresh the browser, modifications do not appear?** Sometimes you need to restart the server to be able to see modifications. In the video I was using some external tools for automatic redeployment.
+
+1. **Is it limited to Eclipse?**
+You can use [IntelliJ](https://www.youtube.com/watch?v=la7WlG9rQvw), it has [Vaadin Designer plugin](https://vaadin.com/designer/get-started#intellij) as well. [Netbeans plugin](http://plugins.netbeans.org/plugin/50531/vaadin-plug-in-for-netbeans) is available but currently it has limited functionalities.
+You can also easily get started from commandline using [Maven archetype](https://vaadin.com/maven).
+
+1. **How to install Vaadin Plugin for Eclipse?**
+Please follow [this video tutorial](https://youtu.be/o93ofXBIkf8?t=36s) for installing the plugin on Eclipse.
+
+##Workflow
 
 Clone this project from GitHub and check out vaadin7 branch:
 
