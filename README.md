@@ -63,6 +63,7 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 
 1. **Where can I find the person-service?**
 The backend service is required to be installed locally to be able to run this project. It's located in [this repository](https://github.com/amahdy/person-service/) along with detailed steps on how to install it.
+You can also get it from [Vaadin Directory](https://vaadin.com/directory#!addon/demo-person-service).
 
 1. **Where can I find the backend project?**
 Please refer to previous answer.
@@ -79,6 +80,9 @@ You can also easily get started from commandline using [Maven archetype](https:/
 
 1. **How to install Vaadin Plugin for Eclipse?**
 Please follow [this video tutorial](https://youtu.be/o93ofXBIkf8?t=36s) for installing the plugin on Eclipse.
+
+1. **Where to find the Vaadin CDI Add-on?**
+It's available in [Vaadin Directory](https://vaadin.com/directory#!addon/vaadin-cdi).
 
 ##Workflow
 
