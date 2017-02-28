@@ -8,9 +8,9 @@ import org.vaadin.stepbystep.person.backend.PersonService;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIUI;
-import com.vaadin.data.util.BeanItemContainer;
+import com.vaadin.v7.data.util.BeanItemContainer;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Grid;
+import com.vaadin.v7.ui.Grid;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.UI;
 

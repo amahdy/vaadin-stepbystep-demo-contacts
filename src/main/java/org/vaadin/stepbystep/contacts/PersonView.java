@@ -2,8 +2,8 @@ package org.vaadin.stepbystep.contacts;
 
 import org.vaadin.stepbystep.person.backend.Person;
 
-import com.vaadin.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.data.fieldgroup.FieldGroup.CommitException;
+import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
+import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitException;
 import com.vaadin.server.ExternalResource;
 
 public class PersonView extends PersonDesign {
