@@ -8,9 +8,8 @@ import org.vaadin.stepbystep.person.backend.PersonService;
 
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIUI;
-import com.vaadin.v7.data.util.BeanItemContainer;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.v7.ui.Grid;
+import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.UI;
 
@@ -28,56 +27,59 @@ import com.vaadin.ui.UI;
 public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
-	Grid grid = new Grid();
+	Grid<Person> grid = new Grid(Person.class);
 	PersonView editor = new PersonView(this::savePerson, this::deletePerson);
 
 	@Inject
 	PersonService service;
 
 	private void savePerson(Person person) {
-		service.save(person);
-
-		grid.refreshRows(person);
+		Person newPerson = service.save(person);
+		listPersons();
+		grid.select(newPerson);
 	}
 
 	private void deletePerson(Person person) {
 		service.delete(person);
-
-		grid.getContainerDataSource().removeItem(person);
-
+		listPersons();
 		selectDefault();
+	}
+
+	private void editSelectedPerson() {
+		Person selected = grid.asSingleSelect().getValue();
+		if(selected != null) {
+			editor.setPerson(service.getById(selected.getId()));
+		}else {
+			selectDefault();
+		}
+	}
+
+	private void selectDefault() {
+		grid.select(service.getFirst());
+	}
+
+	private void listPersons() {
+		grid.setItems(service.getEntries());
 	}
 
 	@PostConstruct
 	void load() {
 		service.loadData();
 
-		grid.addSelectionListener(evt -> {
-			Person selectedItem = (Person) grid.getSelectedRow();
-			if (selectedItem == null) {
-				selectDefault();
-			} else {
-				editor.setPerson(selectedItem);
-			}
+
+		grid.asSingleSelect().addValueChangeListener(evt -> {
+			editSelectedPerson();
 		});
 
-		BeanItemContainer<Person> container = new BeanItemContainer<>(Person.class, service.getEntries());
-		grid.setContainerDataSource(container);
+		listPersons();
 
-		grid.setColumns("firstName","lastName","email");		
+		grid.setColumns("firstName","lastName","email");
 		// Can also be:
-		// grid.removeColumn("id");
-		// grid.removeColumn("notes");
-		// grid.removeColumn("dateOfBirth");
-		// grid.removeColumn("picture");
-		// grid.removeColumn("remind");
-		// grid.setColumnOrder("firstName", "lastName", "email");
+		// grid.addColumn(Person::getFirstName).setCaption("First Name");
+		// grid.addColumn(Person::getLastName).setCaption("Last Name");
+		// grid.addColumn(Person::getEmail).setCaption("Email");
 
 		selectDefault();
-	}
-
-	public void selectDefault() {
-		grid.select(grid.getContainerDataSource().getIdByIndex(0));
 	}
 
 	@Override
