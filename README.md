@@ -62,11 +62,14 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 ##FAQ
 
 1. **Where can I find the person-service?**
-The backend service is required to be installed locally to be able to run this project. It's located in [this repository](https://github.com/amahdy/person-service/) along with detailed steps on how to install it.
-You can also get it from [Vaadin Directory](https://vaadin.com/directory#!addon/demo-person-service).
+The backend service is required to be installed locally to be able to run this project. It's located in [this repository](https://github.com/amahdy/person-service/tree/1.2) along with detailed steps on how to install it.
+You can also get it from [Vaadin Directory](https://vaadin.com/directory#!addon/demo-person-service) (version 1.x only).
 
 1. **Where can I find the backend project?**
 Please refer to previous answer.
+
+1. **The person-service does not work?**
+For this demo with  Vaadin 7, you must use version 1.x.
 
 1. **I'm using Wildfly 10 as shown in the video, but I get 404 in the browser?** Sometimes Wildfly deploys with version suffix, and the context root must contain this suffix. You can change it from configurations, and in this simple demo you can just append `-1.0-SNAPSHOT` to the context root. So the demo should be available under this URL: `http://localhost:8080/contacts-1.0-SNAPSHOT/`
 
