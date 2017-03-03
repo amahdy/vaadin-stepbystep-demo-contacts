@@ -1,9 +1,29 @@
 Contacts - Vaadin Project with External Backend
 ====================================================
 
-This is a demo Vaadin 7 project with CDI. It relies on an [external backend](https://github.com/amahdy/person-service) to serve the data.
+This is a demo Vaadin 8 project with CDI. It relies on an [external backend](https://github.com/amahdy/person-service) to serve the data.
 
 *[Workflow](#workflow) and [FAQ](#faq) are listed below*
+
+##You are on the 'Vaadin 7 to Vaadin 8' migration branch!
+
+To see the latest demo, go to [the main project page](https://github.com/amahdy/vaadin-stepbystep-demo-contacts).
+
+##Steps done to migrate
+
+[Step 0 | Upgrade and fix maven dependencies](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/84e1c1c419b06e18c468340ffa3e1cf8e498f68d)
+
+[Step 1 | Run migration tool](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/248bb8c96ba7ca3820e373729412f5b5a3a55c67)
+
+[Step 2 | Upgrade Grid APIs](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/c4e7e99c8b5c6596e80f0f3965dbfd36b1bd5dac)
+
+[Step 3 | Use the new data binder in the form](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/87230a9aecc96b8184c50f3c1ea967a20fbebb74)
+
+[Step 4 | Upgrade fields and design](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/5220e4b3b168ded698abce0832c1cc74b3700c26)
+
+[Step 5 | Adjust layout with respect to new defaults](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/f2ca6cc32a10a6aa6514a36f4d81ddeefa4d580b)
+
+#Vaadin 7 Demo
 
 ##The coding process of the demo is available on this 12 minutes video
 
