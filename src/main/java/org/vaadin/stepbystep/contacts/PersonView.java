@@ -1,10 +1,8 @@
 package org.vaadin.stepbystep.contacts;
 
-import org.vaadin.stepbystep.person.backend.Person;
-
-import com.vaadin.v7.data.fieldgroup.BeanFieldGroup;
-import com.vaadin.v7.data.fieldgroup.FieldGroup.CommitException;
+import com.vaadin.data.Binder;
 import com.vaadin.server.ExternalResource;
+import org.vaadin.stepbystep.person.backend.Person;
 
 public class PersonView extends PersonDesign {
 
@@ -12,35 +10,30 @@ public class PersonView extends PersonDesign {
 		void savePerson(Person person);
 	}
 
+	public interface PersonCancelListener {
+		void resetPerson();
+	}
+
 	public interface PersonDeleteListener {
 		void deletePerson(Person person);
 	}
 
-	BeanFieldGroup<Person> binder = new BeanFieldGroup<>(Person.class);
+	Binder<Person> binder = new Binder(Person.class);
 
-	public PersonView(PersonSaveListener saveEvt, PersonDeleteListener delEvt) {
-		binder.bindMemberFields(this);
+	public PersonView(PersonSaveListener saveEvt,
+					  PersonCancelListener cancelEvt,
+					  PersonDeleteListener delEvt) {
+		binder.bindInstanceFields(this);
 
-		save.addClickListener(evt -> {
-			try {
-				binder.commit();
-				saveEvt.savePerson(binder.getItemDataSource().getBean());
-			} catch (CommitException e) {
-				e.printStackTrace();
-			}
-		});
+		save.addClickListener(evt -> saveEvt.savePerson(binder.getBean()));
 
-		cancel.addClickListener(evt -> {
-			binder.discard();
-		});
+		cancel.addClickListener(evt -> cancelEvt.resetPerson());
 
-		delete.addClickListener(evt -> {
-			delEvt.deletePerson(binder.getItemDataSource().getBean());
-		});
+		delete.addClickListener(evt -> delEvt.deletePerson(binder.getBean()));
 	}
 
 	public void setPerson(Person selectedRow) {
-		binder.setItemDataSource(selectedRow);
+		binder.setBean(selectedRow);
 
 		picture.setSource(new ExternalResource(selectedRow.getPicture()));
 	}

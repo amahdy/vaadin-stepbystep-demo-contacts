@@ -1,17 +1,16 @@
 package org.vaadin.stepbystep.contacts;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-
-import org.vaadin.stepbystep.person.backend.Person;
-import org.vaadin.stepbystep.person.backend.PersonService;
-
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIUI;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.UI;
+import org.vaadin.stepbystep.person.backend.Person;
+import org.vaadin.stepbystep.person.backend.PersonService;
+
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser
@@ -28,7 +27,7 @@ public class ContactsUI extends UI {
 
 	HorizontalSplitPanel splitter = new HorizontalSplitPanel();
 	Grid<Person> grid = new Grid(Person.class);
-	PersonView editor = new PersonView(this::savePerson, this::deletePerson);
+	PersonView editor = new PersonView(this::savePerson, this::editSelectedPerson, this::deletePerson);
 
 	@Inject
 	PersonService service;
@@ -64,8 +63,6 @@ public class ContactsUI extends UI {
 
 	@PostConstruct
 	void load() {
-		service.loadData();
-
 
 		grid.asSingleSelect().addValueChangeListener(evt -> {
 			editSelectedPerson();
