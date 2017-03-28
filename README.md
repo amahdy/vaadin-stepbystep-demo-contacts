@@ -5,15 +5,18 @@ This is a demo Vaadin 7 project with CDI. It relies on an [external backend](htt
 
 *[Workflow](#workflow) and [FAQ](#faq) are listed below*
 
-##You are on the 'Vaadin 7' branch!
+You are on the 'Vaadin 7' branch!
+-
 
 To see the latest demo, go to [the main project page](https://github.com/amahdy/vaadin-stepbystep-demo-contacts).
 
-##The coding process of the demo is available on this 12 minutes video
+The coding process of the demo is available on this 12 minutes video
+-
 
 [![Vaadin Demo Coding in a Youtube Video](http://img.youtube.com/vi/k47CkTx9hUw/0.jpg)](http://www.youtube.com/watch?v=k47CkTx9hUw)
 
-##Steps are clearly divided into separate commits
+Steps are clearly divided into separate commits
+-
 
 [Step 0 | 00:55 | Create a new Vaadin project using Eclipse plugin](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/3ae97bf99f8c18b22a76db2f1da293c18e19ac9c)
 
@@ -41,7 +44,8 @@ To see the latest demo, go to [the main project page](https://github.com/amahdy/
 
 [Step 12 | End of Video | Update backend as well](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/39b0250b24abb467636e7c93435d782b954b7bd6)
 
-##Other enhancements to the code that are not mentioned in the video
+Other enhancements to the code that are not mentioned in the video
+-
 
 [Extra 1 | Use the new and faster API refreshRows for Grid](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/282a177c2bcd79c02487b0879ec1af1406249b9e)
 
@@ -63,7 +67,8 @@ To see the latest demo, go to [the main project page](https://github.com/amahdy/
 
 [Extra 10 | Host widgetset in CDN](https://github.com/amahdy/vaadin-stepbystep-demo-contacts/commit/4bb4f359056252184a3051c6c359a35f17dfe272)
 
-##FAQ
+FAQ
+-
 
 1. **Where can I find the person-service?**
 The backend service is required to be installed locally to be able to run this project. It's located in [this repository](https://github.com/amahdy/person-service/tree/1.2) along with detailed steps on how to install it.
@@ -91,7 +96,8 @@ Please follow [this video tutorial](https://youtu.be/o93ofXBIkf8?t=36s) for inst
 1. **Where to find the Vaadin CDI Add-on?**
 It's available in [Vaadin Directory](https://vaadin.com/directory#!addon/vaadin-cdi).
 
-##Workflow
+Workflow
+-
 
 **Clone this project from GitHub**
 
