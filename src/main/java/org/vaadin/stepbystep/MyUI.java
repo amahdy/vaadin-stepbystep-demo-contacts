@@ -7,6 +7,9 @@ import com.vaadin.ui.Grid;
 import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.UI;
 import org.vaadin.stepbystep.person.backend.Person;
+import org.vaadin.stepbystep.person.backend.PersonService;
+
+import javax.inject.Inject;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -19,11 +22,16 @@ import org.vaadin.stepbystep.person.backend.Person;
 @CDIUI("")
 public class MyUI extends UI {
 
+    @Inject
+    PersonService service;
+
     HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
     Grid<Person> grid = new Grid<>(Person.class);
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
+
+        grid.setItems(service.getEntries());
 
         splitPanel.setSizeFull();
         grid.setSizeFull();
