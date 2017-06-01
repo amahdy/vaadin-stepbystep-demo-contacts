@@ -27,6 +27,7 @@ public class MyUI extends UI {
 
     HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
     Grid<Person> grid = new Grid<>(Person.class);
+    PersonEditorView editorView = new PersonEditorView();
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
@@ -35,8 +36,10 @@ public class MyUI extends UI {
 
         splitPanel.setSizeFull();
         grid.setSizeFull();
+        editorView.setSizeFull();
 
         splitPanel.setFirstComponent(grid);
+        splitPanel.setSecondComponent(editorView);
 
         setContent(splitPanel);
 
