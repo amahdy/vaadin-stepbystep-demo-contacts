@@ -3,11 +3,10 @@ package org.vaadin.stepbystep;
 import com.vaadin.annotations.Theme;
 import com.vaadin.cdi.CDIUI;
 import com.vaadin.server.VaadinRequest;
-import com.vaadin.ui.Button;
-import com.vaadin.ui.Label;
-import com.vaadin.ui.TextField;
+import com.vaadin.ui.Grid;
+import com.vaadin.ui.HorizontalSplitPanel;
 import com.vaadin.ui.UI;
-import com.vaadin.ui.VerticalLayout;
+import org.vaadin.stepbystep.person.backend.Person;
 
 /**
  * This UI is the application entry point. A UI may either represent a browser window 
@@ -20,21 +19,18 @@ import com.vaadin.ui.VerticalLayout;
 @CDIUI("")
 public class MyUI extends UI {
 
+    HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
+    Grid<Person> grid = new Grid<>(Person.class);
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        final VerticalLayout layout = new VerticalLayout();
-        
-        final TextField name = new TextField();
-        name.setCaption("Type your name here:");
 
-        Button button = new Button("Click Me");
-        button.addClickListener( e -> {
-            layout.addComponent(new Label("Thanks " + name.getValue() 
-                    + ", it works!"));
-        });
-        
-        layout.addComponents(name, button);
-        
-        setContent(layout);
+        splitPanel.setSizeFull();
+        grid.setSizeFull();
+
+        splitPanel.setFirstComponent(grid);
+
+        setContent(splitPanel);
+
     }
 }
