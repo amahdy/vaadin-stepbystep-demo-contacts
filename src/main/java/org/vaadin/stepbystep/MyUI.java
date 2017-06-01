@@ -39,9 +39,15 @@ public class MyUI extends UI {
     protected void init(VaadinRequest vaadinRequest) {
 
         listPersons();
+        selectDefault();
 
         grid.asSingleSelect().addValueChangeListener(evt -> {
-           editorView.setPerson(evt.getValue());
+            Person value = evt.getValue();
+            if(value==null) {
+                selectDefault();
+            }else {
+                editorView.setPerson(value);
+            }
         });
 
         splitPanel.setSizeFull();
@@ -53,6 +59,12 @@ public class MyUI extends UI {
 
         setContent(splitPanel);
 
+    }
+
+    private void selectDefault() {
+        Person first = service.getFirst();
+        grid.select(first);
+        editorView.setPerson(first);
     }
 
     private void listPersons() {
