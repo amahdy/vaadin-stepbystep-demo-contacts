@@ -34,6 +34,10 @@ public class MyUI extends UI {
 
         grid.setItems(service.getEntries());
 
+        grid.asSingleSelect().addValueChangeListener(evt -> {
+           editorView.setPerson(evt.getValue());
+        });
+
         splitPanel.setSizeFull();
         grid.setSizeFull();
         editorView.setSizeFull();
