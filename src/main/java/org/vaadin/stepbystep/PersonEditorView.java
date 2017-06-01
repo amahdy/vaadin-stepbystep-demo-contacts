@@ -1,6 +1,7 @@
 package org.vaadin.stepbystep;
 
 import com.vaadin.data.Binder;
+import com.vaadin.server.ExternalResource;
 import org.vaadin.stepbystep.person.backend.Person;
 
 import java.util.function.Consumer;
@@ -20,5 +21,7 @@ public class PersonEditorView extends PersonEditorDesign {
 
     public void setPerson(Person value) {
         binder.setBean(value);
+
+        picture.setSource(new ExternalResource(value.getPicture()));
     }
 }
