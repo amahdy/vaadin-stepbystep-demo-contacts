@@ -26,7 +26,7 @@ public class MyUI extends UI {
     PersonService service;
 
     HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
-    Grid<Person> grid = new Grid<>(Person.class);
+    Grid<Person> grid = new Grid<>();
     PersonEditorView editorView = new PersonEditorView(person -> {
 
         Person save = service.save(person);
@@ -40,6 +40,10 @@ public class MyUI extends UI {
 
         listPersons();
         selectDefault();
+
+        grid.addColumn(Person::getFirstName).setCaption("First Name");
+        grid.addColumn(Person::getLastName).setCaption("Last Name");
+        grid.addColumn(Person::getEmail).setCaption("E-Mail");
 
         grid.asSingleSelect().addValueChangeListener(evt -> {
             Person value = evt.getValue();
