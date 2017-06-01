@@ -6,6 +6,25 @@
   <meta name="vaadin-version" content="8.0.2">
  </head>
  <body>
-  <vaadin-vertical-layout size-full></vaadin-vertical-layout>
+  <vaadin-vertical-layout size-full>
+   <vaadin-form-layout size-auto>
+    <vaadin-text-field caption="First Name" _id="firstName"></vaadin-text-field>
+    <vaadin-text-field caption="Last Name" _id="lastName"></vaadin-text-field>
+    <vaadin-text-field caption="Email" _id="email"></vaadin-text-field>
+    <vaadin-date-field caption="Date of Birth" _id="dateOfBirth"></vaadin-date-field>
+   </vaadin-form-layout>
+   <vaadin-text-area size-full _id="notes" :expand></vaadin-text-area>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-button plain-text _id="save">
+      Save 
+    </vaadin-button>
+    <vaadin-button plain-text _id="cancel" :expand>
+      Cancel 
+    </vaadin-button>
+    <vaadin-button plain-text _id="delete">
+      Delete 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
  </body>
 </html>
