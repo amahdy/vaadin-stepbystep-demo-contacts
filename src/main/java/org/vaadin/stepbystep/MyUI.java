@@ -27,12 +27,18 @@ public class MyUI extends UI {
 
     HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
     Grid<Person> grid = new Grid<>(Person.class);
-    PersonEditorView editorView = new PersonEditorView();
+    PersonEditorView editorView = new PersonEditorView(person -> {
+
+        Person save = service.save(person);
+        listPersons();
+        grid.select(save);
+
+    });
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
-        grid.setItems(service.getEntries());
+        listPersons();
 
         grid.asSingleSelect().addValueChangeListener(evt -> {
            editorView.setPerson(evt.getValue());
@@ -47,5 +53,9 @@ public class MyUI extends UI {
 
         setContent(splitPanel);
 
+    }
+
+    private void listPersons() {
+        grid.setItems(service.getEntries());
     }
 }
