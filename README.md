@@ -85,7 +85,7 @@ For this demo with  Vaadin 8, you must use version 2.x.
 1. **I'm following the demo step by step, but when I refresh the browser, modifications do not appear?** Sometimes you need to restart the server to be able to see modifications. In the video I was using some external tools for automatic redeployment.
 
 1. **Is it limited to IntelliJ?**
-You can use [Eclipse](https://www.youtube.com/embed/k47CkTx9hUw?start=39&end=94&version=3), it has [Vaadin Designer plugin](https://vaadin.com/designer/get-started#intellij) as well. [Netbeans plugin](http://plugins.netbeans.org/plugin/50531/vaadin-plug-in-for-netbeans) is available but currently it has limited functionalities.
+You can use [Eclipse](https://www.youtube.com/embed/k47CkTx9hUw?start=39&end=94&version=3), it has [Vaadin Designer plugin](https://vaadin.com/designer/get-started#eclipse) as well. [Netbeans plugin](http://plugins.netbeans.org/plugin/50531/vaadin-plug-in-for-netbeans) is available but currently it has limited functionalities.
 You can also easily get started from commandline using [Maven archetype](https://vaadin.com/maven).
 
 1. **How to install Vaadin Plugin for Eclipse?**
