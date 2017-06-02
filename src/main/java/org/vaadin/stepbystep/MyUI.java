@@ -37,6 +37,10 @@ public class MyUI extends UI {
         Person original = service.getById(person.getId());
         grid.getDataProvider().refreshItem(original);
         return original;
+    }, person -> {
+        service.delete(person);
+        listPersons();
+        selectDefault();
     });
 
     @Override
