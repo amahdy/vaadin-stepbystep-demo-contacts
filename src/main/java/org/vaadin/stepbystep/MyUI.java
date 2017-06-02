@@ -28,25 +28,21 @@ public class MyUI extends UI {
     HorizontalSplitPanel splitPanel = new HorizontalSplitPanel();
     Grid<Person> grid = new Grid<>();
     PersonEditorView editorView = new PersonEditorView(person -> {
-
         Person save = service.save(person);
         listPersons();
         grid.select(save);
-
     }, person -> {
         Person original = service.getById(person.getId());
         grid.getDataProvider().refreshItem(original);
         return original;
     }, person -> {
         service.delete(person);
-        listPersons();
         selectDefault();
     });
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
-        listPersons();
         selectDefault();
 
         grid.addColumn(Person::getFirstName).setCaption("First Name");
@@ -58,6 +54,10 @@ public class MyUI extends UI {
             if(value==null) {
                 selectDefault();
             }else {
+                if(evt.getOldValue()!=null) {
+                    grid.getDataProvider().refreshItem(
+                            service.getById(evt.getOldValue().getId()));
+                }
                 editorView.setPerson(value);
             }
         });
@@ -74,6 +74,8 @@ public class MyUI extends UI {
     }
 
     private void selectDefault() {
+        listPersons();
+
         Person first = service.getFirst();
         grid.select(first);
         editorView.setPerson(first);
