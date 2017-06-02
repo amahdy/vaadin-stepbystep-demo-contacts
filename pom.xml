@@ -134,6 +134,13 @@
 					<scanIntervalSeconds>2</scanIntervalSeconds>
 				</configuration>
 			</plugin>
+
+			<!-- Wildfly server plugin to use with JEE and CDI -->
+			<plugin>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.1.0.Final</version>
+			</plugin>
 		</plugins>
 	</build>
 
