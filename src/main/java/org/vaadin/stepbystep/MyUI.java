@@ -33,6 +33,10 @@ public class MyUI extends UI {
         listPersons();
         grid.select(save);
 
+    }, person -> {
+        Person original = service.getById(person.getId());
+        grid.getDataProvider().refreshItem(original);
+        return original;
     });
 
     @Override
