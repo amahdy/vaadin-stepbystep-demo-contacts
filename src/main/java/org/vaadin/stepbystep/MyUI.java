@@ -53,12 +53,8 @@ public class MyUI extends UI {
             Person value = evt.getValue();
             if(value==null) {
                 selectDefault();
-            }else {
-                if(evt.getOldValue()!=null) {
-                    grid.getDataProvider().refreshItem(
-                            service.getById(evt.getOldValue().getId()));
-                }
-                editorView.setPerson(value);
+            } else {
+                loadPerson(value);
             }
         });
 
@@ -73,12 +69,20 @@ public class MyUI extends UI {
 
     }
 
+    private void loadPerson(Person person) {
+        editorView.setPerson(service.getById(person.getId()));
+    }
+
     private void selectDefault() {
         listPersons();
 
         Person first = service.getFirst();
-        grid.select(first);
-        editorView.setPerson(first);
+        if(first!=null) {
+            grid.select(first);
+            loadPerson(first);
+        }else {
+            // TODO: Handle empty grid
+        }
     }
 
     private void listPersons() {
