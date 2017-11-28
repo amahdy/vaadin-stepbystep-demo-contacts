@@ -18,6 +18,9 @@ public class PersonEditorView extends PersonEditorDesign {
                             Function<Person, Person> cancelEvt,
                             Consumer<Person> delEvt) {
         binder.bindInstanceFields(this);
+        binder.setValidationStatusHandler(status -> {
+            save.setEnabled(status.isOk());
+        });
 
         save.addClickListener(evt -> saveEvt.accept(binder.getBean()));
         cancel.addClickListener(evt -> setPerson(cancelEvt.apply(binder.getBean())));
