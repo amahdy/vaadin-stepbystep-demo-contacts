@@ -1,6 +1,6 @@
 package org.vaadin.stepbystep;
 
-import com.vaadin.data.Binder;
+import com.vaadin.data.BeanValidationBinder;
 import com.vaadin.server.ExternalResource;
 import org.vaadin.stepbystep.person.backend.Person;
 
@@ -12,7 +12,7 @@ import java.util.function.Function;
  */
 public class PersonEditorView extends PersonEditorDesign {
 
-    Binder<Person> binder = new Binder<>(Person.class);
+    BeanValidationBinder<Person> binder = new BeanValidationBinder<>(Person.class);
 
     public PersonEditorView(Consumer<Person> saveEvt,
                             Function<Person, Person> cancelEvt,
